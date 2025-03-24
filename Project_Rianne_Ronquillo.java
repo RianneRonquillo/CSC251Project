@@ -1,9 +1,80 @@
 import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
+
 
 public class Project_Rianne_Ronquillo
 {
-   public static void main(String[] args)
+   public static void main(String[] args) throws IOException
    {
+      try 
+      {
+         File file = new File("PolicyInformation.txt");
+            
+         if(!file.exists())
+         {
+            System.out.println("Unable to open file.");
+            System.exit(0);
+         }
+      
+         Scanner inputFile = new Scanner(file);//"open"
+      
+         String policyNumber, providerName, policyHolderFirstName, 
+               policyHolderLastName, policyHolderSmokingStatus;
+         int policyHolderAge;
+         double policyHolderHeight, policyHolderWeight;
+      
+         ArrayList<Policy> policies = new ArrayList<Policy>();
+      
+         while (inputFile.hasNext())
+         {
+            policyNumber = inputFile.nextLine();
+            providerName = inputFile.nextLine();
+            policyHolderFirstName = inputFile.nextLine();
+            policyHolderLastName = inputFile.nextLine();
+            policyHolderAge = inputFile.nextInt();
+            inputFile.nextLine();
+            policyHolderSmokingStatus = inputFile.nextLine();
+            policyHolderHeight = inputFile.nextDouble();
+            policyHolderWeight = inputFile.nextDouble();
+         
+            if(inputFile.hasNext())
+            {
+               inputFile.nextLine();//clear the newline
+               inputFile.nextLine();//skip the blank line in the file
+            }
+         
+            Policy insurance = new Policy(policyNumber, providerName,policyHolderFirstName, policyHolderLastName,
+                                    policyHolderAge, policyHolderSmokingStatus, policyHolderHeight, policyHolderWeight);
+         
+            policies.add(insurance); //add policy objects to ArrayList
+         }//close while loop
+      
+         inputFile.close();//close the file
+      
+         for(int i = 0; i < policies.size(); i++)
+         {
+            System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
+            System.out.println("Provider Name: " + policies.get(i).getProviderName());
+            System.out.println("Policyholder's First Name: " + policies.get(i).getPolicyHolderFirstName());
+            System.out.println("Policyholder's Last Name: " + policies.get(i).getPolicyHolderLastName());
+            System.out.println("Policyholder's Age: " + policies.get(i).getPolicyHolderAge());
+            System.out.println("Policyholder's Smoking Status: " + policies.get(i).getPolicyHolderSmokingStatus());
+            System.out.println("Policyholder's Height: " + policies.get(i).getPolicyHolderHeight() + " inches");
+            System.out.println("Policyholder's Weight: " + policies.get(i).getPolicyHolderWeight() + " pounds");
+            System.out.printf("Policyholder's BMI: %,.2f\n", policies.get(i).getBMI());
+            System.out.printf("Policy Price: $%,.2f", policies.get(i).getInsurancePolicyPrice());
+            System.out.println();
+            System.out.println();
+         }
+      }//close try
+      
+      catch(IOException ex)
+      {
+         System.out.println("Something went wrong reading the file: " + ex.getMessage());
+      }
+      
+      /*
       String policyNumber, providerName, policyHolderFirstName, 
                policyHolderLastName, policyHolderSmokingStatus;
       int policyHolderAge;
@@ -49,6 +120,6 @@ public class Project_Rianne_Ronquillo
       System.out.println("Policyholder's Weight: " + insurance.getPolicyHolderWeight());
       System.out.printf("Policyholder's BMI: %,.2f\n", insurance.getBMI());
       System.out.printf("Policy Price: $%,.2f", insurance.getInsurancePolicyPrice());
-      
+      */
    }
 }
