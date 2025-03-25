@@ -23,6 +23,7 @@ public class Project_Rianne_Ronquillo
                policyHolderLastName, policyHolderSmokingStatus;
          int policyHolderAge;
          double policyHolderHeight, policyHolderWeight;
+         int totalSmokers = 0, totalNonSmokers = 0;
       
          ArrayList<Policy> policies = new ArrayList<Policy>();
       
@@ -66,7 +67,17 @@ public class Project_Rianne_Ronquillo
             System.out.printf("Policy Price: $%,.2f", policies.get(i).getInsurancePolicyPrice());
             System.out.println();
             System.out.println();
-         }
+            
+            if (policies.get(i).getPolicyHolderSmokingStatus().equalsIgnoreCase("smoker")){
+               totalSmokers += 1;
+            }
+            else if(policies.get(i).getPolicyHolderSmokingStatus().equalsIgnoreCase("non-smoker")){
+               totalNonSmokers += 1;
+            }
+         }//end for loop
+         
+         System.out.println("The number of policies with a smoker is: " + totalSmokers);
+         System.out.println("The number of policies with a non-smoker is: " + totalNonSmokers);
       }//close try
       
       catch(IOException ex)
