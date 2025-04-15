@@ -80,7 +80,7 @@ public class Project_Rianne_Ronquillo
             }
          }//end for loop
          System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
-         System.out.println();
+         System.out.println("");
          System.out.println("The number of policies with a smoker is: " + totalSmokers);
          System.out.println("The number of policies with a non-smoker is: " + totalNonSmokers);
       }//close try
