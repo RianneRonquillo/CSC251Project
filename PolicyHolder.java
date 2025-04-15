@@ -209,9 +209,9 @@ public class PolicyHolder
              "Policyholder's Last Name: " + policyHolderLastName + "\n" +
              "Policyholder's Age: " + policyHolderAge + "\n" +
              "Policyholder's Smokting Status (Y/N): " + policyHolderSmokingStatus + "\n" +
-             "Policyholder's Height: " + policyHolderHeight + "\n" +
-             "Policyholder's weight: " + policyHolderWeight + "\n" +
-             "Policyholder's BMI: " + getBMI() + "\n" +
-             "Policy Price: " + getInsurancePolicyPrice() + "\n";
+             "Policyholder's Height: " + policyHolderHeight + " inches \n" +
+             "Policyholder's weight: " + policyHolderWeight + " pounds \n" +
+             String.format("Policyholder's BMI: %.2f\n", getBMI()) +
+             String.format("Policy Price: %.2f\n", getInsurancePolicyPrice());
    }
 }
