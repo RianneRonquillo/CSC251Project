@@ -104,7 +104,7 @@ public class Policy
    
    public String toString()
    {
-      return "Policy Number" + policyNumber + "\n" +
+      return "Policy Number: " + policyNumber + "\n" +
              "Provider Name: " + providerName + "\n" +
              holder.toString();
    }
