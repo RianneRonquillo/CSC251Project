@@ -45,8 +45,10 @@ public class Project_Rianne_Ronquillo
                inputFile.nextLine();//skip the blank line in the file
             }
          
-            Policy insurance = new Policy(policyNumber, providerName,policyHolderFirstName, policyHolderLastName,
-                                    policyHolderAge, policyHolderSmokingStatus, policyHolderHeight, policyHolderWeight);
+            PolicyHolder holder = new PolicyHolder(policyHolderFirstName, policyHolderLastName, policyHolderAge,
+                                                   policyHolderSmokingStatus, policyHolderHeight, policyHolderWeight);
+                                                   
+            Policy insurance = new Policy(policyNumber, providerName, holder);
          
             policies.add(insurance); //add policy objects to ArrayList
          }//close while loop
@@ -55,27 +57,30 @@ public class Project_Rianne_Ronquillo
       
          for(int i = 0; i < policies.size(); i++)
          {
-            System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
-            System.out.println("Provider Name: " + policies.get(i).getProviderName());
-            System.out.println("Policyholder's First Name: " + policies.get(i).getPolicyHolderFirstName());
-            System.out.println("Policyholder's Last Name: " + policies.get(i).getPolicyHolderLastName());
-            System.out.println("Policyholder's Age: " + policies.get(i).getPolicyHolderAge());
-            System.out.println("Policyholder's Smoking Status: " + policies.get(i).getPolicyHolderSmokingStatus());
-            System.out.println("Policyholder's Height: " + policies.get(i).getPolicyHolderHeight() + " inches");
-            System.out.println("Policyholder's Weight: " + policies.get(i).getPolicyHolderWeight() + " pounds");
-            System.out.printf("Policyholder's BMI: %,.2f\n", policies.get(i).getBMI());
-            System.out.printf("Policy Price: $%,.2f", policies.get(i).getInsurancePolicyPrice());
-            System.out.println();
-            System.out.println();
+            //System.out.println("Policy Number: " + policies.get(i).getPolicyNumber());
+            //System.out.println("Provider Name: " + policies.get(i).getProviderName());
+            //System.out.println("Policyholder's First Name: " + policies.get(i).getPolicyHolderFirstName());
+            //System.out.println("Policyholder's Last Name: " + policies.get(i).getPolicyHolderLastName());
+            //System.out.println("Policyholder's Age: " + policies.get(i).getPolicyHolderAge());
+            //System.out.println("Policyholder's Smoking Status: " + policies.get(i).getPolicyHolderSmokingStatus());
+            //System.out.println("Policyholder's Height: " + policies.get(i).getPolicyHolderHeight() + " inches");
+            //System.out.println("Policyholder's Weight: " + policies.get(i).getPolicyHolderWeight() + " pounds");
+            //System.out.printf("Policyholder's BMI: %,.2f\n", policies.get(i).getBMI());
+            //System.out.printf("Policy Price: $%,.2f", policies.get(i).getInsurancePolicyPrice());
+            //System.out.println();
+            //System.out.println();
             
-            if (policies.get(i).getPolicyHolderSmokingStatus().equalsIgnoreCase("smoker")){
+            System.out.println(policies.get(i));
+            
+            if (policies.get(i).getPolicyHolder().getPolicyHolderSmokingStatus().equalsIgnoreCase("smoker")){
                totalSmokers += 1;
             }
-            else if(policies.get(i).getPolicyHolderSmokingStatus().equalsIgnoreCase("non-smoker")){
+            else if(policies.get(i).getPolicyHolder().getPolicyHolderSmokingStatus().equalsIgnoreCase("non-smoker")){
                totalNonSmokers += 1;
             }
          }//end for loop
-         
+         System.out.println("There were " + Policy.getPolicyCount() + " Policy objects created.");
+         System.out.println();
          System.out.println("The number of policies with a smoker is: " + totalSmokers);
          System.out.println("The number of policies with a non-smoker is: " + totalNonSmokers);
       }//close try
