@@ -188,4 +188,16 @@ public class PolicyHolder
       double insurancePolicyPrice = BASE_FEE + additionalFee;
       return insurancePolicyPrice;
    }
+   
+   public String toString()
+   {
+      return "Policyholder's First Name: " + policyHolderFirstName + "\n" + 
+             "Policyholder's Last Name: " + policyHolderLastName + "\n" +
+             "Policyholder's Age: " + policyHolderAge + "\n" +
+             "Policyholder's Smokting Status (Y/N): " + policyHolderSmokingStatus + "\n" +
+             "Policyholder's Height: " + policyHolderHeight + "\n" +
+             "Policyholder's weight: " + policyHolderWeight + "\n" +
+             "Policyholder's BMI: " + getBMI() + "\n" +
+             "Policy Price: " + getInsurancePolicyPrice() + "\n";
+   }
 }
