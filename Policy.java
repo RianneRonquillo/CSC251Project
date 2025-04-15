@@ -68,4 +68,10 @@ public class Policy
    {
       return providerName;
    }
+   
+   public String toString()
+   {
+      return "Policy Number" + policyNumber + "\n" +
+             "Provider Name: " + providerName + "\n";
+   }
 }
