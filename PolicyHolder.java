@@ -41,6 +41,20 @@ public class PolicyHolder
    }
    
    /**
+      Copy Constructor
+      @param obj The object to make a copy of
+   */
+   public PolicyHolder(PolicyHolder obj)
+   {
+      this.policyHolderFirstName = obj.policyHolderFirstName;
+      this.policyHolderLastName = obj.policyHolderLastName;
+      this.policyHolderAge = obj.policyHolderAge;
+      this.policyHolderSmokingStatus = obj.policyHolderSmokingStatus;
+      this.policyHolderHeight = obj.policyHolderHeight;
+      this.policyHolderWeight = obj.policyHolderWeight;
+   }
+   
+   /**
       Mutator and accessor methods
    */
    
