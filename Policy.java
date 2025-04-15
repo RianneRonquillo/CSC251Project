@@ -3,6 +3,9 @@ public class Policy
    private String policyNumber;
    private String providerName;
    
+   //static field, shared among all instances of the class
+   public static int policyCount = 0;
+   
    //Constructors
    
    /**
@@ -12,6 +15,7 @@ public class Policy
    {
       policyNumber = "0000";
       providerName = "None";
+      policyCount++;
    }
    
    /**
@@ -23,6 +27,7 @@ public class Policy
    {
       policyNumber = number;
       providerName = provider;
+      policyCount++;
    }
    
    /**
@@ -69,9 +74,20 @@ public class Policy
       return providerName;
    }
    
+   /**
+      The getPolicyCount method gets the number of policy objects created
+      @return The policy objects count
+   */
+   public static int getPolicyCount()
+   {
+      return policyCount;
+   }
+   
    public String toString()
    {
       return "Policy Number" + policyNumber + "\n" +
              "Provider Name: " + providerName + "\n";
    }
+   
+   
 }
